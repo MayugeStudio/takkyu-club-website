@@ -28,7 +28,7 @@ header {
 }
 
 /* グローバルナビゲーション */
-.global-nav {
+nav {
     background: rgba(74, 144, 226, 0.95);
     backdrop-filter: blur(10px);
     position: sticky;
@@ -37,13 +37,7 @@ header {
     box-shadow: 0 2px 20px rgba(0,0,0,0.1);
 }
 
-.nav-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.nav-list {
+nav ul {
     display: flex;
     list-style: none;
     justify-content: center;
@@ -69,17 +63,17 @@ header {
 }
 
 /* メインコンテンツ */
-.main-content {
+main {
     min-height: calc(100vh - 200px);
 }
 
 /* セクション */
-.section {
+section {
     padding: 80px 0;
     position: relative;
 }
 
-.section:nth-child(even) {
+section:nth-child(even) {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
