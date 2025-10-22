@@ -32,13 +32,6 @@ body {
   padding: 0 20px;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
 
 /* ヘッダ */
 header {
@@ -52,13 +45,25 @@ header {
   justify-content: space-between;
 }
 
-header h1 {
-  font-size: 1.3rem;
+div#header-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#header-left h1 {
+  font-size: 2.0rem;
+}
+
+#header-icon {
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 /* グローバルナビゲーション */
 nav {
-  margin: 0 100px;
+  margin: 0 50px 0 0;
 }
 
 nav ul {
@@ -158,6 +163,14 @@ section:nth-child(even) {
 .feature-item h4 {
   margin-bottom: 10px;
   font-size: 1.2rem;
+}
+
+#practice-section-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 /* 練習日程セクション */
