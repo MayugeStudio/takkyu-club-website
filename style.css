@@ -131,8 +131,9 @@ section:nth-child(even) {
 
 .intro-text h3 {
   font-size: 1.8rem;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   font-weight: 600;
+  text-align: center;
 }
 
 .intro-text p {
