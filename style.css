@@ -105,6 +105,10 @@ section {
   position: relative;
 }
 
+section:nth-child(odd) {
+  background-color: #fefefe;
+}
+
 section:nth-child(even) {
   background-color: #e9ecef;
 }
