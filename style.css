@@ -36,33 +36,23 @@ body {
 /* ヘッダ */
 header {
   display: flex;
-  position: sticky;
-  z-index: 1000;
-  top: 0;
-  background-color: var(--main-color);
-  border-bottom: 2px solid var(--main-color);
-  align-items: center;
-  justify-content: space-between;
-}
-
-div#header-left {
-  display: flex;
-  align-items: center;
   justify-content: center;
-}
-
-#header-left h1 {
-  font-size: 2.0rem;
-}
-
-#header-icon {
-  margin: 10px;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  align-items: flex-end;
+  width: 100%;
+  height: 750px;
+  background-color: #ddd;
+  background-image: url(https://placehold.co/1000x1000/CCC/png);
+  background-size: cover;
 }
 
 /* グローバルナビゲーション */
 nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  background-color: #6e9fe2cc;
   margin: 0 50px 0 0;
 }
 
@@ -75,7 +65,7 @@ nav ul {
 }
 
 .nav-link {
-  color: #fff;
+  color: #000;
   text-decoration: none;
   font-weight: 500;
   font-size: 1.1rem;
