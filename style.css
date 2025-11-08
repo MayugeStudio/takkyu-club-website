@@ -17,6 +17,12 @@ h1, h2, h3, h4 {
 }
 
 /* 基本設定 */
+html {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 body {
   font-family: "IBM Plex Mono", monospace;
   font-weight: 400;
@@ -24,6 +30,11 @@ body {
   line-height: 1.6;
   color: #333;
   background-color: var(--body-color);
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
@@ -38,14 +49,20 @@ header {
   justify-content: center;
   align-items: flex-end;
   width: 100%;
-  height: 100vh;
+  max-width: 100vw;
+  height: auto;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 header img {
   width: 100%;
+  max-width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 /* グローバルナビゲーション */
@@ -54,9 +71,15 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
+  max-width: 100vw;
   z-index: 99;
   background-color: #6e9fe2cc;
-  margin: 0 50px 0 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 nav ul {
@@ -65,6 +88,42 @@ nav ul {
   justify-content: center;
   gap: 40px;
   padding: 15px 0;
+}
+
+/* ハンバーガーメニューボタン */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 100;
+  position: relative;
+}
+
+.hamburger-menu span {
+  width: 100%;
+  height: 3px;
+  background-color: #000;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
 }
 
 .nav-link {
@@ -86,9 +145,11 @@ nav ul {
 
 /* メインコンテンツ */
 main {
-  width: 1000px;
+  width: 100%;
+  max-width: 1000px;
   margin: 0 auto;
   min-height: calc(100vh - 200px);
+  padding: 0 20px;
 }
 
 /* セクション */
@@ -169,10 +230,12 @@ section:nth-child(even) {
 
 .slideshow {
   position: relative;
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   height: 600px;
   overflow: hidden;
   border-radius: 12px;
+  margin: 0 auto;
 }
 
 .slideshow img {
@@ -405,5 +468,323 @@ section:nth-child(even) {
   font-family: "IBM Plex Mono", monospace;
   font-weight: 400;
   font-style: normal;
+}
+
+/* レスポンシブデザイン */
+/* タブレット対応（768px以下） */
+@media screen and (max-width: 768px) {
+  /* ナビゲーション */
+  nav {
+    padding: 0 15px;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  /* ハンバーガーメニューボタンを表示 */
+  .hamburger-menu {
+    display: flex;
+  }
+
+  /* ナビゲーションメニューをデフォルトで非表示 */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: #6e9fe2;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 80px 20px 20px;
+    gap: 0;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  /* メニューが開いている時 */
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-menu li {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  nav ul {
+    gap: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    padding: 15px 20px;
+    text-align: left;
+    border-radius: 8px;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background-color: var(--main-light-color);
+    transform: none;
+  }
+
+  /* ヘッダ */
+  header {
+    height: auto;
+  }
+
+  /* セクションタイトル */
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  /* クラブ紹介セクション */
+  .intro-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .intro-text h3 {
+    font-size: 1.5rem;
+  }
+
+  .intro-text p {
+    font-size: 1rem;
+  }
+
+  .slideshow {
+    height: 500px;
+  }
+
+  /* 練習日程セクション */
+  .schedule-info h3 {
+    font-size: 1.5rem;
+  }
+
+  .schedule-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* 体験・入会セクション */
+  .application-info h3 {
+    font-size: 1.5rem;
+  }
+
+  .application-steps {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .step {
+    padding: 25px 20px;
+  }
+
+  /* フッタ */
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+/* モバイル対応（480px以下） */
+@media screen and (max-width: 480px) {
+  /* ナビゲーション */
+  nav {
+    margin: 0;
+    padding: 10px 15px;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  /* ハンバーガーメニューボタンを表示 */
+  .hamburger-menu {
+    display: flex;
+  }
+
+  /* ナビゲーションメニューをデフォルトで非表示 */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: #6e9fe2;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 80px 20px 20px;
+    gap: 0;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  /* メニューが開いている時 */
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-menu li {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .nav-link {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    padding: 15px 20px;
+    text-align: left;
+    border-radius: 8px;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background-color: var(--main-light-color);
+    transform: none;
+  }
+
+  /* ヘッダ */
+  header {
+    height: auto;
+    width: 100%;
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+  }
+
+  header img {
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  /* セクション */
+  section {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+
+  /* クラブ紹介セクション */
+  .intro-text h3 {
+    font-size: 1.3rem;
+  }
+
+  .intro-text p {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+  }
+
+  .features {
+    gap: 15px;
+    margin-top: 30px;
+  }
+
+  .feature-item {
+    padding: 15px;
+  }
+
+  .feature-item h4 {
+    font-size: 1rem;
+  }
+
+  .slideshow {
+    height: 400px;
+  }
+
+  /* 練習日程セクション */
+  .schedule-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+  }
+
+  .schedule-item {
+    padding: 20px;
+  }
+
+  .schedule-item h4 {
+    font-size: 1.1rem;
+  }
+
+  .location-info {
+    padding: 20px;
+    font-size: 1rem;
+  }
+
+  /* 体験・入会セクション */
+  .application-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .application-info p {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+
+  .application-steps {
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .step {
+    padding: 20px 15px;
+  }
+
+  .step h4 {
+    font-size: 1.1rem;
+  }
+
+  .membership-info {
+    padding: 20px;
+  }
+
+  .membership-info h4 {
+    font-size: 1.1rem;
+  }
+
+  .membership-info ul {
+    font-size: 1rem;
+  }
+
+  /* フッタ */
+  .footer {
+    padding: 30px 0 15px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .footer-section h4 {
+    font-size: 1.1rem;
+  }
+
+  .footer-sns {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* コンテナ */
+  .container {
+    padding: 0 15px;
+  }
+
+  main {
+    padding: 0 15px;
+  }
 }
 
