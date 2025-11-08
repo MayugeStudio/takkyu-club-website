@@ -98,7 +98,8 @@ main {
 
 /* セクション */
 section {
-  padding: 120px 0;
+  padding-top: 50px;
+  scroll-margin-top: 100px;
   position: relative;
 }
 
