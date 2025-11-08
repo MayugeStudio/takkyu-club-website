@@ -194,6 +194,7 @@ section:nth-child(even) {
   opacity: 1;
 }
 
+#practice-section-image {
   height: auto;
   object-fit: cover;
   border-radius: 10px;
