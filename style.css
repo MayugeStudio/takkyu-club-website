@@ -242,21 +242,24 @@ section:nth-child(even) {
 
 .slideshow {
   position: relative;
-  width: 100%;
-  max-width: 400px;
+  width: 400px;
   height: 600px;
   overflow: hidden;
   border-radius: 12px;
   margin: 0 auto;
+  background-color: #fafafa;
 }
 
 .slideshow img {
   position: absolute;
-  max-width: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   opacity: 0;
   transition: opacity 1s ease;
+  border-radius: 12px;
 }
 
 .slideshow img.active {
@@ -572,7 +575,11 @@ section:nth-child(even) {
   }
 
   .slideshow {
-    height: 500px;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    max-height: 500px;
   }
 
   /* 練習日程セクション */
@@ -714,7 +721,11 @@ section:nth-child(even) {
   }
 
   .slideshow {
-    height: 400px;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    max-height: 400px;
   }
 
   /* 練習日程セクション */
