@@ -352,12 +352,16 @@ section:nth-child(even) {
 }
 
 .step {
+  text-align: center;
   background-color: var(--white);
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 5px 20px var(--shadow-light);
-  text-align: center;
   position: relative;
+}
+
+.step>.address-info {
+  font-size: 1rem;
 }
 
 .step-number {
@@ -378,6 +382,7 @@ section:nth-child(even) {
 }
 
 .step h4 {
+  text-align: center;
   margin-bottom: 15px;
   margin-top: 20px;
 }
